@@ -8,13 +8,17 @@
     "lint": "eslint src/**/*.ts",
     "format": "npx prettier . --write",
     "prepare": "husky",
-    "lint-staged": "lint-staged --concurrent false"
+    "lint-staged": "lint-staged --concurrent false",
+    "e2e": "npx playwright test",
+    "e2e-ui": "npx playwright test --ui"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.14.1",
     "eslint": "^9.25.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
