@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "vitest",
+    "test": "vitest run unit-tests",
     "lint": "eslint src/**/*.ts",
     "format": "npx prettier . --write",
     "prepare": "husky",
