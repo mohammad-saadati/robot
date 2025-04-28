@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "vitest",
     "lint": "eslint src/**/*.ts",
@@ -31,7 +32,7 @@
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "eslint --fix"
+      "eslint --ignore-pattern 'dist/**' --fix"
     ],
     "*.{js,ts,css,scss,md,json,mjs}": "prettier --write"
   }

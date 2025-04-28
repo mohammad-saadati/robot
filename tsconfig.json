@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["ES2016", "DOM"],
     "target": "es2016",
     "module": "commonjs",
     "esModuleInterop": true,
@@ -8,5 +9,6 @@
     "skipLibCheck": true,
     "outDir": "./dist"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
