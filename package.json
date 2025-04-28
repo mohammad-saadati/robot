@@ -10,7 +10,8 @@
     "prepare": "husky",
     "lint-staged": "lint-staged --concurrent false",
     "e2e": "npx playwright test",
-    "e2e-ui": "npx playwright test --ui"
+    "e2e-ui": "npx playwright test --ui",
+    "doc": "typedoc src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "prettier": "3.5.3",
+    "typedoc": "^0.28.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.30.1",
     "vitest": "^3.1.1"
