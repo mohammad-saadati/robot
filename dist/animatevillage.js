@@ -24,7 +24,7 @@
       this.robotState = robotState;
       this.turn = 0;
       this.timeout = null;
-      let outer = document.body,
+      const outer = document.body,
         doc = outer.ownerDocument;
       this.node = outer.appendChild(doc.createElement('div'));
       this.node.style.cssText = 'position: relative; line-height: 0.1; margin-left: 10px';
@@ -41,7 +41,7 @@
       this.map.style.cssText = 'vertical-align: -8px';
       this.robotElt = this.node.appendChild(doc.createElement('div'));
       this.robotElt.style.cssText = `position: absolute; transition: left ${0.8 / speed}s, top ${0.8 / speed}s;`;
-      let robotPic = this.robotElt.appendChild(doc.createElement('img'));
+      const robotPic = this.robotElt.appendChild(doc.createElement('img'));
       robotPic.src = this.imgPath + 'robot_moving2x.gif';
       this.parcels = [];
       this.text = this.node.appendChild(doc.createElement('span'));
@@ -56,26 +56,26 @@
       this.robotElt.addEventListener('transitionend', () => this.updateParcels());
     }
     updateView() {
-      let pos = places[this.worldState.place];
+      const pos = places[this.worldState.place];
       this.robotElt.style.top = pos.y - 38 + 'px';
       this.robotElt.style.left = pos.x - 16 + 'px';
       this.text.textContent = ` Turn ${this.turn} `;
     }
     updateParcels() {
       while (this.parcels.length) this.parcels.pop().remove();
-      let heights = {};
-      for (let { place, address } of this.worldState.parcels) {
-        let height = heights[place] || (heights[place] = 0);
+      const heights = {};
+      for (const { place, address } of this.worldState.parcels) {
+        const height = heights[place] || (heights[place] = 0);
         heights[place] += 14;
-        let node = document.createElement('div');
-        let offset = placeKeys.indexOf(address) * 16;
+        const node = document.createElement('div');
+        const offset = placeKeys.indexOf(address) * 16;
         node.style.cssText = `position: absolute; height: 16px; width: 16px; background-image: url(${this.imgPath}parcel2x.png); background-position: 0 -${offset}px`;
         if (place == this.worldState.place) {
           node.style.left = '25px';
           node.style.bottom = 20 + height + 'px';
           this.robotElt.appendChild(node);
         } else {
-          let pos = places[place];
+          const pos = places[place];
           node.style.left = pos.x - 5 + 'px';
           node.style.top = pos.y - 10 - height + 'px';
           this.node.appendChild(node);
@@ -84,7 +84,7 @@
       }
     }
     tick() {
-      let { direction, memory } = this.robot(this.worldState, this.robotState);
+      const { direction, memory } = this.robot(this.worldState, this.robotState);
       this.worldState = this.worldState.move(direction);
       this.robotState = memory;
       this.turn++;
